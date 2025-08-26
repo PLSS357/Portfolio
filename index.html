@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedro Lima - Portfólio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        animation: shine 3s infinite;
+      }
+      @keyframes shine {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+        position: relative;
+      }
+      .profile-img:hover {
+        transform: scale(1.05) rotate(5deg);
+      }
+      .profile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .profile-img .initials {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        font-size: 3rem;
+        font-weight: bold;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #555;
+        transition: transform 0.3s ease;
+      }
+      .contact-item:hover {
+        transform: translateY(-3px);
+      }
+
+      .section {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+      .section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 0.5rem;
+        position: relative;
+      }
+      .section h2::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: #764ba2;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+      .skill-category {
+        background: linear-gradient(135deg, #f8f9ff, #e8f0ff);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border-left: 4px solid #667eea;
+        transition: transform 0.3s ease;
+      }
+      .skill-category:hover {
+        transform: translateX(10px);
+      }
+      .skill-category h3 {
+        color: #667eea;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .skill-tag {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+      }
+      .skill-tag:hover {
+        transform: scale(1.05);
+      }
+
+      .experience-item {
+        background: linear-gradient(135deg, #f8f9ff, #e8f0ff);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid #764ba2;
+        transition: transform 0.3s ease;
+      }
+      .experience-item:hover {
+        transform: translateX(10px);
+      }
+      .experience-title {
+        font-size: 1.3rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      .experience-company {
+        color: #667eea;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+      }
+      .experience-period {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .education-item {
+        background: linear-gradient(135deg, #fff8f0, #fff0e6);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        border-left: 4px solid #ff8c42;
+        transition: transform 0.3s ease;
+      }
+      .education-item:hover {
+        transform: translateX(10px);
+      }
+
+      .cta-section {
+        text-align: center;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        padding: 3rem 2rem;
+        border-radius: 20px;
+        margin-top: 2rem;
+      }
+      .cta-button {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 1rem 2rem;
+        border-radius: 30px;
+        text-decoration: none;
+        margin: 0.5rem;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+      }
+      .cta-button:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .floating-elements {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+      .floating-element {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+      .floating-element:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .floating-element:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        top: 60%;
+        right: 10%;
+        animation-delay: 2s;
+      }
+      .floating-element:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        top: 80%;
+        left: 20%;
+        animation-delay: 4s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      /* ===== PORTFÓLIO ===== */
+      .portfolio-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .portfolio-header h2 {
+        margin-bottom: 0;
+      }
+      .filters {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .filter-btn {
+        border: 0;
+        padding: 0.6rem 1rem;
+        border-radius: 999px;
+        cursor: pointer;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        font-weight: 600;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      }
+      .filter-btn[aria-pressed="true"] {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+        transform: translateY(-2px);
+      }
+      .filter-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 1.25rem;
+      }
+      .media-card {
+        position: relative;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        cursor: pointer;
+      }
+      .media-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.12);
+      }
+      .media-thumb {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        background: #eee;
+      }
+      .media-thumb[poster] {
+        background-image: attr(poster);
+      }
+
+      /* Estilos específicos para vídeos como thumbnail */
+      video.media-thumb {
+        pointer-events: none; /* Previne reprodução acidental */
+      }
+      video.media-thumb::-webkit-media-controls {
+        display: none !important;
+      }
+      video.media-thumb::-webkit-media-controls-panel {
+        display: none !important;
+      }
+      .media-info {
+        padding: 0.8rem 1rem;
+      }
+      .media-info h3 {
+        font-size: 1rem;
+        color: #333;
+        margin-bottom: 0.25rem;
+      }
+      .media-info p {
+        font-size: 0.85rem;
+        color: #666;
+      }
+
+      .play-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 24px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      .media-card[data-type="video"]:hover .play-overlay {
+        opacity: 1;
+      }
+
+      /* Lightbox */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        z-index: 9999;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox-content {
+        width: 100%;
+        height: 100vh;
+        background: #111;
+        border-radius: 0;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+      }
+      .lightbox-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        background: #1a1a1a;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      .lightbox-body {
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+      }
+      .lightbox-body img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        background: #000;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+      .lightbox-body video {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        background: #000;
+        display: block;
+      }
+      .lightbox-close {
+        background: transparent;
+        border: 0;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+      .lightbox-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .lb-controls {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      .lightbox-btn {
+        background: #2a2a2a;
+        border: 1px solid #3b3b3b;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background-color 0.3s ease;
+      }
+      .lightbox-btn:hover {
+        background: #383838;
+      }
+
+      .zoom-fit {
+        object-fit: contain;
+        cursor: zoom-in;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+      }
+      .zoom-actual {
+        object-fit: none;
+        cursor: grab;
+        transform-origin: center;
+        transition: transform 0.2s ease;
+      }
+      .zoom-actual:active {
+        cursor: grabbing;
+      }
+
+      /* Responsividade aprimorada */
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        .contact-info {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        .lightbox-content {
+          width: 100%;
+          height: 100vh;
+          border-radius: 0;
+        }
+        .lightbox-header {
+          padding: 0.75rem;
+          font-size: 0.9rem;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+        .lightbox-btn {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.8rem;
+        }
+        .lb-controls {
+          flex-wrap: wrap;
+          gap: 0.3rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .lightbox-header {
+          padding: 0.5rem;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .lb-controls {
+          justify-content: center;
+          width: 100%;
+        }
+        .lightbox-btn {
+          font-size: 0.75rem;
+          padding: 0.3rem 0.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-elements">
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+    </div>
+
+    <div class="container">
+      <header>
+        <div class="profile-img">
+          <img
+            src="IMG/IMG-20230509-WA0002.jpg"
+            alt="Pedro Lima"
+            id="profile-photo"
+          />
+          <div class="initials" id="profile-initials">PL</div>
+        </div>
+        <h1>Pedro Lima Souza Santos</h1>
+        <p class="subtitle">
+          Desenvolvedor Front-end | Marketing Digital | Designer
+        </p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span>📍</span><span>Barra Bonita/SP</span>
+          </div>
+          <div class="contact-item">
+            <span>📞</span><span>(14) 99880-2338</span>
+          </div>
+          <div class="contact-item">
+            <span>✉️</span><span>pedrolimaextra@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <span>💼</span><span>LinkedIn: Pedro Lima Souza Santos</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2>Sobre Mim</h2>
+        <p>
+          Profissional versátil e em constante evolução, com experiência em
+          marketing digital, design e desenvolvimento front-end. Busco sempre
+          oportunidades de aprendizado e crescimento profissional, contribuindo
+          com minhas habilidades para diferentes áreas e desafios. Focado no
+          desenvolvimento contínuo e na entrega de resultados de qualidade.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Habilidades Técnicas</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>🎨 Design & Criação</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Photoshop</span>
+              <span class="skill-tag">Illustrator</span>
+              <span class="skill-tag">Canva</span>
+              <span class="skill-tag">Edição de Vídeo</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>💻 Desenvolvimento</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Front-end</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Informática para Internet</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>📊 Produtividade</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Pacote Office</span>
+              <span class="skill-tag">Informática Geral</span>
+              <span class="skill-tag">Organização</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>🗣️ Comunicação</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Português Nativo</span>
+              <span class="skill-tag">Inglês Básico</span>
+              <span class="skill-tag">Espanhol Básico</span>
+              <span class="skill-tag">Comunicação</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Experiência Profissional</h2>
+        <div class="experience-item">
+          <div class="experience-title">Auxiliar de Marketing</div>
+          <div class="experience-company">Açaí da Barra</div>
+          <div class="experience-period">
+            Outubro 2024 - Agosto 2025 · 11 meses
+          </div>
+          <p>
+            Desenvolvimento de estratégias de marketing digital, criação de
+            conteúdo visual e roteiros para vídeos. Responsável por campanhas
+            publicitárias e gestão de mídias sociais.
+          </p>
+        </div>
+        <div class="experience-item">
+          <div class="experience-title">Estagiário</div>
+          <div class="experience-company">Açaí da Barra</div>
+          <div class="experience-period">
+            Outubro 2023 - Setembro 2024 · 1 ano
+          </div>
+          <p>
+            Apoio nas atividades de marketing e comunicação, desenvolvimento de
+            materiais visuais e suporte em projetos digitais da empresa.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Formação Acadêmica</h2>
+        <div class="education-item">
+          <div class="experience-title">Ensino Técnico - Recursos Humanos</div>
+          <div class="experience-company">
+            Etec Comendador João Rays, Barra Bonita
+          </div>
+          <div class="experience-period">Janeiro 2023 - Junho 2024</div>
+        </div>
+        <div class="education-item">
+          <div class="experience-title">
+            Ensino Técnico - Informática para Internet
+          </div>
+          <div class="experience-company">
+            Etec Comendador João Rays, Barra Bonita
+          </div>
+          <div class="experience-period">Janeiro 2020 - Dezembro 2022</div>
+        </div>
+        <div class="education-item">
+          <div class="experience-title">Ensino Médio</div>
+          <div class="experience-company">
+            Etec Comendador João Rays, Barra Bonita
+          </div>
+          <div class="experience-period">Janeiro 2020 - Dezembro 2022</div>
+        </div>
+      </section>
+
+      <!-- ===== PORTFÓLIO ===== -->
+      <section id="portfolio" class="section">
+        <div class="portfolio-header">
+          <h2>Portfólio — Artes & Vídeos</h2>
+          <div class="filters" role="tablist" aria-label="Filtro de portfólio">
+            <button class="filter-btn" data-filter="all" aria-pressed="true">
+              Todos
+            </button>
+            <button class="filter-btn" data-filter="art">Artes</button>
+            <button class="filter-btn" data-filter="video">Vídeos</button>
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="gallery">
+          <!-- ARTES -->
+          <article
+            class="media-card"
+            data-type="art"
+            data-src="IMG/Placa Preço.png"
+            data-title="Self-service 6,99"
+          >
+            <img
+              class="media-thumb"
+              src="IMG/Placa Preço.png"
+              alt="Arte: Self-service 6,99"
+              loading="lazy"
+            />
+            <div class="media-info">
+              <h3>Self-service 6,99</h3>
+              <p>Arte promocional — Açaí da Barra</p>
+            </div>
+          </article>
+
+          <article
+            class="media-card"
+            data-type="art"
+            data-src="IMG/5524-Black-Friday-Banner 60x120_page-0001.jpg"
+            data-title="Banner Black Friday"
+          >
+            <img
+              class="media-thumb"
+              src="IMG/5524-Black-Friday-Banner 60x120_page-0001.jpg"
+              alt="Banner Black Friday"
+              loading="lazy"
+            />
+            <div class="media-info">
+              <h3>Banner Black Friday</h3>
+              <p>Campanha com QR code</p>
+            </div>
+          </article>
+
+          <article
+            class="media-card"
+            data-type="art"
+            data-src="IMG/3711-Cavalete 60x100_page-0001.jpg"
+            data-title="Cavalete de produtos"
+          >
+            <img
+              class="media-thumb"
+              src="IMG/3711-Cavalete 60x100_page-0001.jpg"
+              alt="Cavalete de produtos"
+              loading="lazy"
+            />
+            <div class="media-info">
+              <h3>Cavalete — Produtos</h3>
+              <p>Açais, sorvetes, sucos e mais</p>
+            </div>
+          </article>
+
+          <article
+            class="media-card"
+            data-type="art"
+            data-src="IMG/3609_ Banner 70 largura x 1,20 altura (1)_page-0001.jpg"
+            data-title="Banner opções por R$14,90"
+          >
+            <img
+              class="media-thumb"
+              src="IMG/3609_ Banner 70 largura x 1,20 altura (1)_page-0001.jpg"
+              alt="Banner opções por R$14,90"
+              loading="lazy"
+            />
+            <div class="media-info">
+              <h3>Banner — Opções por R$14,90</h3>
+              <p>Copo tradicional, milk shake, sensação</p>
+            </div>
+          </article>
+
+          <article
+            class="media-card"
+            data-type="art"
+            data-src="IMG/3505-Pet Friendly-A4 02_page-0001.jpg"
+            data-title="Pet Friendly"
+          >
+            <img
+              class="media-thumb"
+              src="IMG/3505-Pet Friendly-A4 02_page-0001.jpg"
+              alt="Pet Friendly"
+              loading="lazy"
+            />
+            <div class="media-info">
+              <h3>Pet Friendly</h3>
+              <p>Comunicação institucional</p>
+            </div>
+          </article>
+
+          <article
+            class="media-card"
+            data-type="art"
+            data-src="IMG/3882-Marque-feed.png"
+            data-title="Marque e Ganhe"
+          >
+            <img
+              class="media-thumb"
+              src="IMG/3882-Marque-feed.png"
+              alt="Promo — Poste uma foto e ganhe picolé"
+              loading="lazy"
+            />
+            <div class="media-info">
+              <h3>Marque e Ganhe</h3>
+              <p>Card para Instagram</p>
+            </div>
+          </article>
+
+          <article
+            class="media-card"
+            data-type="art"
+            data-src="IMG/3909-Horario-Natal-feed.png"
+            data-title="Horário de Natal"
+          >
+            <img
+              class="media-thumb"
+              src="IMG/3909-Horario-Natal-feed.png"
+              alt="Horário de Natal"
+              loading="lazy"
+            />
+            <div class="media-info">
+              <h3>Horário de Natal</h3>
+              <p>Card informativo</p>
+            </div>
+          </article>
+
+          <!-- VÍDEOS -->
+          <article
+            class="media-card"
+            data-type="video"
+            data-src="MP4/ig_video_1756229044.mp4"
+            data-title="Reels — Açaí da Barra"
+          >
+            <video
+              class="media-thumb"
+              src="MP4/ig_video_1756229044.mp4"
+              muted
+              preload="metadata"
+            ></video>
+            <div class="play-overlay">▶</div>
+            <div class="media-info">
+              <h3>Reels — Açaí da Barra</h3>
+              <p>Roteiro, edição e finalização</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- ===== FIM PORTFÓLIO ===== -->
+
+      <div class="cta-section">
+        <h2>Vamos Trabalhar Juntos?</h2>
+        <p>
+          Estou sempre em busca de novos desafios e oportunidades de
+          crescimento. Entre em contato para conversarmos sobre como posso
+          contribuir com seu projeto!
+        </p>
+        <a class="cta-button" href="mailto:pedrolimaextra@gmail.com"
+          >Enviar E-mail</a
+        >
+        <a class="cta-button" href="tel:+5514998802338">Ligar Agora</a>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+      <div class="lightbox-content" aria-modal="true">
+        <div class="lightbox-header">
+          <strong id="lightbox-title">Visualização</strong>
+          <div class="lb-controls">
+            <button class="lightbox-btn" id="lb-zoom">Ajustar Zoom</button>
+            <button class="lightbox-btn" id="lb-audio" style="display: none">
+              Som: On
+            </button>
+            <button class="lightbox-btn" id="lb-play" style="display: none">
+              ⏸
+            </button>
+            <button
+              class="lightbox-close"
+              id="lightbox-close"
+              aria-label="Fechar"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+        <div class="lightbox-body" id="lightbox-body">
+          <!-- Conteúdo dinâmico -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Interações gerais
+      document.addEventListener("DOMContentLoaded", function () {
+        // Sistema de foto de perfil
+        const profilePhoto = document.getElementById("profile-photo");
+        const profileInitials = document.getElementById("profile-initials");
+
+        // Verificar se a imagem carregou corretamente
+        profilePhoto.addEventListener("load", function () {
+          profileInitials.style.display = "none";
+        });
+
+        // Se a imagem falhar ao carregar, mostrar as iniciais
+        profilePhoto.addEventListener("error", function () {
+          profileInitials.style.display = "flex";
+          profilePhoto.style.display = "none";
+        });
+
+        // Configurar vídeos como thumbnails
+        document.querySelectorAll("video.media-thumb").forEach((video) => {
+          video.addEventListener("loadedmetadata", function () {
+            // Definir tempo para 1 segundo para pegar um frame mais interessante
+            this.currentTime = 1;
+          });
+
+          video.addEventListener("seeked", function () {
+            // Uma vez que o frame é carregado, pausar o vídeo
+            this.pause();
+          });
+
+          // Garantir que o vídeo não reproduza acidentalmente
+          video.addEventListener("play", function (e) {
+            if (this.classList.contains("media-thumb")) {
+              this.pause();
+            }
+          });
+
+          // Carregar os metadados para obter o primeiro frame
+          video.load();
+        });
+
+        // Animação de entrada das seções
+        const sections = document.querySelectorAll(".section");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        sections.forEach((section) => {
+          section.style.opacity = "0";
+          section.style.transform = "translateY(20px)";
+          section.style.transition = "opacity .6s ease, transform .6s ease";
+          observer.observe(section);
+        });
+
+        // Parallax
+        window.addEventListener("scroll", () => {
+          const scrolled = window.pageYOffset;
+          document.querySelectorAll(".floating-element").forEach((el, i) => {
+            const speed = 0.5 + i * 0.1;
+            el.style.transform = `translateY(${scrolled * speed}px)`;
+          });
+        });
+      });
+
+      // ===== Sistema de Portfólio =====
+      (function () {
+        const buttons = document.querySelectorAll(".filter-btn");
+        const cards = document.querySelectorAll(".media-card");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxBody = document.getElementById("lightbox-body");
+        const lightboxTitle = document.getElementById("lightbox-title");
+        const closeBtn = document.getElementById("lightbox-close");
+        const zoomBtn = document.getElementById("lb-zoom");
+        const audioBtn = document.getElementById("lb-audio");
+        const playBtn = document.getElementById("lb-play");
+
+        let currentMedia = null;
+        let isZoomed = false;
+
+        // Sistema de filtros
+        function setFilter(type) {
+          buttons.forEach((btn) => {
+            btn.setAttribute(
+              "aria-pressed",
+              String(btn.dataset.filter === type)
+            );
+          });
+
+          cards.forEach((card) => {
+            if (type === "all" || card.dataset.type === type) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        }
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => setFilter(btn.dataset.filter));
+        });
+
+        setFilter("all"); // Inicializar com todos os itens
+
+        // Sistema de lightbox
+        function openLightbox(src, title, type) {
+          lightboxTitle.textContent = title || "Visualização";
+          lightboxBody.innerHTML = "";
+
+          if (type === "video") {
+            const video = document.createElement("video");
+            video.src = src;
+            video.controls = true;
+            video.autoplay = true;
+            video.muted = false;
+            video.style.width = "100%";
+            video.style.height = "100%";
+            video.style.objectFit = "contain";
+
+            currentMedia = video;
+            lightboxBody.appendChild(video);
+
+            // Mostrar controles de vídeo
+            audioBtn.style.display = "";
+            playBtn.style.display = "";
+            zoomBtn.style.display = "none";
+
+            updateVideoControls();
+
+            // Event listeners para vídeo
+            video.addEventListener("play", updateVideoControls);
+            video.addEventListener("pause", updateVideoControls);
+            video.addEventListener("volumechange", updateVideoControls);
+          } else {
+            const img = document.createElement("img");
+            img.src = src;
+            img.alt = title || "Visualização";
+            img.className = "zoom-fit";
+
+            // Calcular dimensões da tela disponível
+            const availableWidth = window.innerWidth;
+            const availableHeight = window.innerHeight - 80; // Subtraindo altura do header
+
+            img.style.maxWidth = availableWidth + "px";
+            img.style.maxHeight = availableHeight + "px";
+
+            currentMedia = img;
+            lightboxBody.appendChild(img);
+
+            // Mostrar controles de imagem
+            audioBtn.style.display = "none";
+            playBtn.style.display = "none";
+            zoomBtn.style.display = "";
+
+            isZoomed = false;
+            zoomBtn.textContent = "Zoom 100%";
+
+            // Adicionar funcionalidade de pan quando em zoom
+            addPanFunctionality(img);
+          }
+
+          lightbox.classList.add("open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        }
+
+        // Funcionalidade de pan para imagens em zoom
+        function addPanFunctionality(img) {
+          let isPanning = false;
+          let startX,
+            startY,
+            initialX = 0,
+            initialY = 0;
+
+          img.addEventListener("mousedown", (e) => {
+            if (!isZoomed) return;
+            isPanning = true;
+            startX = e.clientX - initialX;
+            startY = e.clientY - initialY;
+            img.style.cursor = "grabbing";
+          });
+
+          document.addEventListener("mousemove", (e) => {
+            if (!isPanning || !isZoomed) return;
+            e.preventDefault();
+            initialX = e.clientX - startX;
+            initialY = e.clientY - startY;
+            img.style.transform = `translate(${initialX}px, ${initialY}px) scale(2)`;
+          });
+
+          document.addEventListener("mouseup", () => {
+            if (isPanning) {
+              isPanning = false;
+              if (isZoomed) img.style.cursor = "grab";
+            }
+          });
+
+          // Touch events para mobile
+          img.addEventListener("touchstart", (e) => {
+            if (!isZoomed) return;
+            const touch = e.touches[0];
+            isPanning = true;
+            startX = touch.clientX - initialX;
+            startY = touch.clientY - initialY;
+          });
+
+          document.addEventListener("touchmove", (e) => {
+            if (!isPanning || !isZoomed) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+            initialX = touch.clientX - startX;
+            initialY = touch.clientY - startY;
+            img.style.transform = `translate(${initialX}px, ${initialY}px) scale(2)`;
+          });
+
+          document.addEventListener("touchend", () => {
+            isPanning = false;
+          });
+        }
+
+        function closeLightbox() {
+          if (currentMedia && currentMedia.tagName === "VIDEO") {
+            currentMedia.pause();
+          }
+
+          lightbox.classList.remove("open");
+          lightbox.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          lightboxBody.innerHTML = "";
+          currentMedia = null;
+          isZoomed = false;
+        }
+
+        // Redimensionar quando a janela muda de tamanho
+        window.addEventListener("resize", () => {
+          if (currentMedia && currentMedia.tagName === "IMG" && !isZoomed) {
+            const availableWidth = window.innerWidth;
+            const availableHeight = window.innerHeight - 80;
+            currentMedia.style.maxWidth = availableWidth + "px";
+            currentMedia.style.maxHeight = availableHeight + "px";
+          }
+        });
+
+        function updateVideoControls() {
+          if (!currentMedia || currentMedia.tagName !== "VIDEO") return;
+
+          playBtn.textContent = currentMedia.paused ? "▶" : "⏸";
+          audioBtn.textContent = `Som: ${currentMedia.muted ? "Off" : "On"}`;
+        }
+
+        // Event listeners
+        document.getElementById("gallery").addEventListener("click", (e) => {
+          const card = e.target.closest(".media-card");
+          if (!card) return;
+
+          e.preventDefault();
+
+          const src = card.dataset.src;
+          const title = card.dataset.title;
+          const type = card.dataset.type;
+
+          if (src && title) {
+            openLightbox(src, title, type);
+          }
+        });
+
+        closeBtn.addEventListener("click", closeLightbox);
+
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        // Controles do lightbox
+        zoomBtn.addEventListener("click", () => {
+          if (!currentMedia || currentMedia.tagName !== "IMG") return;
+
+          isZoomed = !isZoomed;
+
+          if (isZoomed) {
+            currentMedia.className = "zoom-actual";
+            currentMedia.style.transform = "scale(2)";
+            currentMedia.style.cursor = "grab";
+            zoomBtn.textContent = "Ajustar";
+          } else {
+            currentMedia.className = "zoom-fit";
+            currentMedia.style.transform = "none";
+            currentMedia.style.cursor = "zoom-in";
+            zoomBtn.textContent = "Zoom 100%";
+          }
+        });
+
+        audioBtn.addEventListener("click", () => {
+          if (!currentMedia || currentMedia.tagName !== "VIDEO") return;
+
+          currentMedia.muted = !currentMedia.muted;
+          updateVideoControls();
+        });
+
+        playBtn.addEventListener("click", () => {
+          if (!currentMedia || currentMedia.tagName !== "VIDEO") return;
+
+          if (currentMedia.paused) {
+            currentMedia.play();
+          } else {
+            currentMedia.pause();
+          }
+          updateVideoControls();
+        });
+
+        // Atalhos do teclado
+        document.addEventListener("keydown", (e) => {
+          if (!lightbox.classList.contains("open")) return;
+
+          switch (e.key) {
+            case "Escape":
+              e.preventDefault();
+              closeLightbox();
+              break;
+            case " ":
+              if (currentMedia && currentMedia.tagName === "VIDEO") {
+                e.preventDefault();
+                playBtn.click();
+              }
+              break;
+            case "m":
+            case "M":
+              if (currentMedia && currentMedia.tagName === "VIDEO") {
+                e.preventDefault();
+                audioBtn.click();
+              }
+              break;
+            case "z":
+            case "Z":
+              if (currentMedia && currentMedia.tagName === "IMG") {
+                e.preventDefault();
+                zoomBtn.click();
+              }
+              break;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
